@@ -61,14 +61,14 @@ class Game
     def turn
         player = current_player
         current_move = player.move(@board)
-        if @board.valid_move?(current_move)
+        if !@board.valid_move?(current_move)
+            turn
+        else
             puts "Current Turn: #{@board.turn_count+1}"
             @board.display
             @board.update(current_move, player)
             puts "#{player.token} moved #{current_move}"
             @board.display
-        else
-            turn
         end
     end
 

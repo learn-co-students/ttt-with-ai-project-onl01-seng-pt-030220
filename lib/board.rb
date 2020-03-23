@@ -9,10 +9,6 @@ class Board
         @cells = [" ", " ", " ", " ", " ", " ", " ", " ", " "]
     end
 
-    def input_to_index(input)
-        index = input.to_i - 1
-    end
-
     def display
         puts " #{@cells[0]} | #{@cells[1]} | #{@cells[2]} "
         puts "-----------"
@@ -22,7 +18,7 @@ class Board
     end
 
     def position(input)
-        @cells[input_to_index(input)]
+        @cells[input.to_i - 1]
     end
 
     def full?
@@ -42,6 +38,6 @@ class Board
     end
 
     def update(input, player)
-        cells[input.to_i-1] = player.token
+        cells[input.to_i - 1] = player.token
     end
 end
